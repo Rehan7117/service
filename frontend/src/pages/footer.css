@@ -1,0 +1,148 @@
+/* Base Footer Styles */
+footer {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(40, 54, 182);
+  align-items: center;
+  color: white;
+  padding: 20px 0;
+}
+
+.footer0 {
+  font-weight: 1200;
+  transition-duration: 1s;
+  text-align: center;
+}
+
+.footer0:hover {
+  color: rgb(243, 168, 7);
+}
+
+.footer1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  margin-top: 15px;
+  text-align: center;
+}
+
+.social-media {
+  display: flex;
+  justify-content: center;
+  color: white;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.social-media a {
+  color: white;
+  margin: 10px;
+  border-radius: 5px;
+}
+
+.social-media a ion-icon {
+  color: white;
+  background-color: rgb(94, 41, 41);
+  font-size: 24px;
+  padding: 10px;
+  border-radius: 50%;
+}
+
+.social-media a:hover ion-icon {
+  color: rgb(0, 255, 136);
+  transform: translateY(-5px);
+  transition: transform 0.3s;
+}
+
+.footer2 {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  align-items: center;
+  text-decoration: none;
+  flex-wrap: wrap;
+  padding: 20px 0;
+}
+
+.footer2 .heading {
+  font-weight: 900;
+  font-size: 18px;
+  text-align: center;
+}
+
+.footer2 .heading:hover {
+  color: rgb(243, 168, 7);
+}
+
+.footer2 .div:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s;
+}
+
+.footer3 {
+  margin-top: 40px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+}
+
+.footer3 h4 {
+  margin: 10px;
+  font-size: 16px;
+}
+
+/* Media Queries for Responsiveness */
+
+/* Large screens (max-width: 1250px) */
+@media screen and (max-width: 1250px) {
+  .footer2 {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* Medium screens (max-width: 900px) */
+@media screen and (max-width: 900px) {
+  .footer1 {
+    font-size: 1rem;
+  }
+
+  .footer2 {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer3 h4 {
+    font-size: 14px;
+  }
+}
+
+/* Small screens (max-width: 550px) */
+@media screen and (max-width: 550px) {
+  .footer1 {
+    font-size: 0.9rem;
+    text-align: center;
+  }
+
+  .footer2 {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 0;
+  }
+
+  .footer3 {
+    flex-direction: column;
+  }
+
+  .social-media a ion-icon {
+    font-size: 20px;
+    padding: 8px;
+  }
+
+  .footer3 h4 {
+    font-size: 13px;
+  }
+}

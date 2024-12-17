@@ -1,0 +1,72 @@
+/* Base styles for the user list */
+.user-list-container {
+  padding: 20px;
+}
+
+.user-list-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.user-list-table th,
+.user-list-table td {
+  border: 1px solid #ddd; /* Light gray border */
+  padding: 8px;
+  text-align: left;
+}
+
+.user-list-table th {
+  background-color: #0066cc; /* Blue header background */
+  color: #ffffff; /* White text */
+}
+
+/* Responsive styles */
+
+/* Medium screens (max-width: 768px) */
+@media screen and (max-width: 768px) {
+  .user-list-container {
+    padding: 15px; /* Slightly smaller padding */
+  }
+
+  .user-list-table th,
+  .user-list-table td {
+    padding: 6px; /* Smaller padding for table cells */
+    font-size: 14px; /* Slightly smaller font size for readability */
+  }
+}
+
+/* Small screens (max-width: 600px) */
+@media screen and (max-width: 600px) {
+  .user-list-container {
+    padding: 10px; /* Smaller padding */
+  }
+
+  .user-list-table {
+    display: block;
+    overflow-x: auto; /* Enable horizontal scrolling */
+    white-space: nowrap; /* Prevent table cells from wrapping */
+  }
+
+  .user-list-table th,
+  .user-list-table td {
+    padding: 5px; /* Smaller padding */
+    font-size: 13px; /* Further reduce font size */
+  }
+}
+
+/* Extra small screens (max-width: 400px) */
+@media screen and (max-width: 400px) {
+  .user-list-container {
+    padding: 8px; /* Compact padding for very small screens */
+  }
+
+  .user-list-table th,
+  .user-list-table td {
+    padding: 4px; /* Smaller padding */
+    font-size: 12px; /* Smaller text for compact viewing */
+  }
+
+  .user-list-table th {
+    font-size: 13px; /* Slightly larger header text for visibility */
+  }
+}

@@ -1,0 +1,68 @@
+/* Base styles for the booking list */
+.booking-list-container {
+  padding: 20px;
+}
+
+.booking-list-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.booking-list-table th, .booking-list-table td {
+  border: 1px solid #dddddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.booking-list-table th {
+  background-color:  #0066cc; /* Blue background for the table header */
+  color: #ffffff; /* White text for contrast */
+}
+
+/* Responsive styles */
+
+/* Medium screens (max-width: 768px) */
+@media screen and (max-width: 768px) {
+  .booking-list-container {
+    padding: 15px; /* Adjusted padding for smaller screens */
+  }
+
+  .booking-list-table th, .booking-list-table td {
+    padding: 6px; /* Reduced padding for table cells */
+    font-size: 14px; /* Slightly smaller font size for better fit */
+  }
+}
+
+/* Small screens (max-width: 600px) */
+@media screen and (max-width: 600px) {
+  .booking-list-container {
+    padding: 10px; /* Reduced padding for smaller screens */
+  }
+
+  .booking-list-table {
+    display: block;
+    overflow-x: auto; /* Enable horizontal scrolling */
+    white-space: nowrap; /* Prevent cell wrapping */
+  }
+
+  .booking-list-table th, .booking-list-table td {
+    padding: 5px; /* Smaller padding for compact viewing */
+    font-size: 13px; /* Smaller font for narrow screens */
+  }
+}
+
+/* Extra small screens (max-width: 400px) */
+@media screen and (max-width: 400px) {
+  .booking-list-container {
+    padding: 8px; /* Minimal padding for very small screens */
+  }
+
+  .booking-list-table th, .booking-list-table td {
+    padding: 4px; /* Compact padding for table cells */
+    font-size: 12px; /* Smaller font size for readability */
+  }
+
+  .booking-list-table th {
+    font-size: 13px; /* Slightly larger header text for visibility */
+  }
+}

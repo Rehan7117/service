@@ -1,0 +1,215 @@
+/* Base styles */
+body, html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+.home {
+  font-family: Arial, sans-serif;
+  color: #333;
+  padding: 20px;
+  background-color: #f0f8ff; /* Light blue background */
+}
+
+/* Header styles */
+.header {
+  text-align: center;
+  background-color: #f9fcfd; /* Light blue background */
+  color: #0066cc;
+  padding: 40px 0;
+  border-bottom: 5px solid #f3f5f7; /* Lighter blue accent border */
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 2.5em;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.header p {
+  font-size: 1.2em;
+  margin-top: 10px;
+}
+
+/* Services section */
+.services {
+  margin-top: 10px;
+}
+
+.services h2 {
+  text-align: center;
+  font-size: 2em;
+  margin-bottom: 20px;
+  color: #00509e; /* Lighter blue color */
+}
+
+/* States section */
+.states {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.state-card {
+  background-color: #ffffff; /* White background */
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin: 10px;
+  padding: 20px;
+  width: 300px;
+  transition: transform 0.3s, box-shadow 0.3s; /* Smooth hover effects */
+  border: 2px solid #0066cc; /* Blue border around the whole card */
+}
+
+.state-card:hover {
+  transform: translateY(-5px); /* Lift effect on hover */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.state-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.state-card h3 {
+  margin-top: 15px;
+  font-size: 1.5em;
+  color: #00509e; /* Lighter blue color */
+}
+
+.state-card p {
+  margin-top: 10px;
+  font-size: 1em;
+  color: #555;
+}
+
+/* Call to Action section */
+.cta {
+  text-align: center;
+  color: #0a0a0a;
+  padding: 40px 20px;
+  margin-top: 40px;
+  background-color: #e6f0ff; /* Light blue background */
+  border-radius: 8px;
+}
+
+.cta h2 {
+  margin-bottom: 20px;
+  font-size: 2em;
+  color: #00509e; /* Lighter blue color */
+}
+
+.cta p {
+  font-size: 1.2em;
+  margin-bottom: 30px;
+}
+
+.cta-button {
+  background-color: #0099ff; /* Light blue button */
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.2em;
+  cursor: pointer;
+  transition: background-color 0.3s; /* Smooth color transition */
+}
+
+.cta-button:hover {
+  background-color: #007acc; /* Slightly darker blue on hover */
+}
+
+/* Responsive Design */
+
+/* Mobile view (up to 600px wide) */
+@media (max-width: 600px) {
+  .header h1 {
+    font-size: 2em;
+  }
+
+  .header p {
+    font-size: 1em;
+  }
+
+  .services h2 {
+    font-size: 1.5em;
+  }
+
+  .state-card {
+    width: 100%; /* Full width on small screens */
+    margin: 10px 0;
+  }
+
+  .cta h2 {
+    font-size: 1.8em;
+  }
+
+  .cta p {
+    font-size: 1em;
+  }
+
+  .cta-button {
+    font-size: 1em;
+    padding: 8px 16px;
+  }
+}
+
+/* Tablet view (up to 1024px wide) */
+@media (max-width: 1024px) {
+  .states {
+    justify-content: center;
+  }
+
+  .state-card {
+    width: 45%; /* Reduce card width for tablets */
+  }
+
+  .cta-button {
+    font-size: 1.1em;
+  }
+}
+
+/* Large screens (above 1024px) */
+@media (min-width: 1025px) {
+  .state-card {
+    width: 300px; /* Fixed width for larger screens */
+  }
+}
+.admin-section {
+  margin: 2rem 0;
+}
+
+.admin-cards {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.admin-card {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+  width: 200px;
+}
+
+.admin-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.admin-card h3 {
+  margin: 1rem 0 0.5rem;
+}
+
+.admin-card p {
+  font-size: 0.9rem;
+  color: #666;
+}

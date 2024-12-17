@@ -1,0 +1,101 @@
+/* Base styles for the login form */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+  margin: 50px auto;
+  padding: 20px;
+  border: 1px solid #ccc; /* Light border for a clean look */
+  border-radius: 8px;
+  background-color: #ffffff; /* White background */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.login-form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #0056b3; /* Dark blue for the heading */
+}
+
+.login-form input {
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #007bff; /* Blue border for inputs */
+  border-radius: 4px;
+  font-size: 14px;
+  width: calc(95% - 22px);
+  background-color: #f0f8ff; /* Light blue background for input fields */
+}
+
+.login-form input:focus {
+  outline: none;
+  border-color: #0056b3; /* Darker blue on focus */
+  box-shadow: 0 0 4px rgba(0, 86, 179, 0.5); /* Focus shadow in dark blue */
+}
+
+.login-form button {
+  padding: 10px;
+  background-color: #007bff; /* Blue button background */
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.login-form button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Responsive Styles */
+
+/* Medium screens (max-width: 768px) */
+@media screen and (max-width: 768px) {
+  .login-form {
+    width: 300px; /* Reduce form width for smaller screens */
+  }
+
+  .login-form button {
+    font-size: 15px; /* Slightly smaller button text */
+  }
+}
+
+/* Small screens (max-width: 600px) */
+@media screen and (max-width: 600px) {
+  .login-form {
+    width: 90%; /* Use a percentage width for better flexibility on small screens */
+    padding: 15px;
+  }
+
+  .login-form h2 {
+    font-size: 20px; /* Smaller heading font size */
+  }
+
+  .login-form input {
+    padding: 8px; /* Reduce padding for inputs */
+    font-size: 13px; /* Smaller input text */
+  }
+
+  .login-form button {
+    font-size: 14px; /* Smaller button font size */
+    padding: 8px;
+  }
+}
+
+/* Extra small screens (max-width: 400px) */
+@media screen and (max-width: 400px) {
+  .login-form {
+    width: 100%; /* Full width for very small screens */
+  }
+
+  .login-form input {
+    font-size: 12px; /* Reduce input font size further */
+    padding: 6px;
+  }
+
+  .login-form button {
+    font-size: 13px;
+    padding: 6px;
+  }
+}

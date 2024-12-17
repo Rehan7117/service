@@ -1,0 +1,153 @@
+/* Base Navbar Styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #0066cc; /* Lighter blue background */
+}
+
+.navbar-left, .navbar-right {
+  display: flex;
+  gap: 10px;
+}
+
+.navbar-center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.navbar-heading {
+  font-size: 24px;
+  color: #fff; /* White text for visibility */
+  font-weight: bold;
+  margin: 0;
+}
+
+.navbar-link {
+  color: #ffffff; /* White text */
+  text-decoration: none;
+  padding: 8px 12px;
+  transition: color 0.3s;
+}
+
+.navbar-link:hover {
+  color: #f3a807; /* Gold color on hover for contrast */
+}
+
+.navbar-welcome {
+  font-size: 14px;
+  color: #ddd; /* Light grey color for welcome message */
+}
+
+/* Logout button styles */
+.logout-button {
+  background-color: #ff9900; /* Lighter orange for consistency with CTA */
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 14px;
+}
+
+/* Logout button hover effect */
+.logout-button:hover {
+  background-color: #e68a00; /* Darker orange on hover */
+}
+
+/* Media Queries for Responsiveness */
+
+/* Large screens (max-width: 1200px) */
+@media screen and (max-width: 1200px) {
+  .navbar-heading {
+    font-size: 22px;
+  }
+
+  .navbar-link {
+    padding: 6px 10px;
+    font-size: 14px;
+  }
+
+  .logout-button {
+    padding: 6px 10px;
+    font-size: 13px;
+  }
+}
+
+/* Medium screens (max-width: 900px) */
+@media screen and (max-width: 900px) {
+  .navbar {
+    padding: 8px 15px;
+  }
+
+  .navbar-heading {
+    font-size: 20px;
+  }
+
+  .navbar-link {
+    padding: 5px 8px;
+    font-size: 13px;
+  }
+
+  .logout-button {
+    padding: 5px 8px;
+    font-size: 12px;
+  }
+}
+
+/* Small screens (max-width: 600px) */
+@media screen and (max-width: 600px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar-center {
+    justify-content: flex-start;
+    margin-top: 10px;
+  }
+
+  .navbar-heading {
+    font-size: 18px;
+  }
+
+  .navbar-link {
+    font-size: 12px;
+    padding: 4px 6px;
+  }
+
+  .logout-button {
+    font-size: 12px;
+    padding: 4px 6px;
+  }
+
+  .navbar-left, .navbar-right {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+}
+
+/* Extra small screens (max-width: 400px) */
+@media screen and (max-width: 400px) {
+  .navbar-heading {
+    font-size: 16px;
+  }
+
+  .navbar-link {
+    font-size: 11px;
+    padding: 3px 5px;
+  }
+
+  .logout-button {
+    font-size: 11px;
+    padding: 3px 5px;
+  }
+
+  .navbar-welcome {
+    font-size: 12px;
+  }
+}

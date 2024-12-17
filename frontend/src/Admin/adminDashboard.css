@@ -1,0 +1,86 @@
+/* Base styles for admin dashboard */
+.admin-dashboard {
+  display: flex;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: #0066cc; /* Blue background for sidebar */
+  color: white;
+  padding: 20px;
+  height: 100vh;
+}
+
+.sidebar h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar li {
+  padding: 15px 20px;
+  cursor: pointer;
+  border-bottom: 1px solid #004d99; /* Darker blue for border */
+}
+
+.sidebar li:hover,
+.sidebar li.active {
+  background-color: #00509e; /* Hover effect color */
+}
+
+.content {
+  flex: 1;
+  padding: 20px;
+  background-color: #f0f8ff; /* Light blue background */
+}
+
+/* Responsive styles */
+
+/* Medium screens (max-width: 768px) */
+@media screen and (max-width: 768px) {
+  .sidebar {
+    width: 200px;
+    padding: 15px; /* Reduced sidebar padding for medium screens */
+  }
+  
+  .content {
+    padding: 15px; /* Reduced content padding */
+  }
+}
+
+/* Small screens (max-width: 600px) */
+@media screen and (max-width: 600px) {
+  .admin-dashboard {
+    flex-direction: column; /* Stack sidebar and content vertically */
+  }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    padding: 10px;
+  }
+
+  .content {
+    padding: 10px; /* Reduced padding for small screens */
+  }
+}
+
+/* Extra small screens (max-width: 400px) */
+@media screen and (max-width: 400px) {
+  .sidebar li {
+    padding: 10px 15px; /* Compact padding for list items */
+    font-size: 14px; /* Smaller font size for narrow screens */
+  }
+
+  .sidebar {
+    padding: 8px;
+  }
+
+  .content {
+    padding: 8px;
+  }
+}
