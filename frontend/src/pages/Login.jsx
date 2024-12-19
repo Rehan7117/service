@@ -16,7 +16,7 @@ const Login = () => {
     try {
       await login(username, password);
       setError('');
-      navigate('/'); // Redirect to the desired landing page
+      navigate('/home'); // Redirect to home page after successful user login
     } catch (error) {
       setError('Invalid credentials');
     }

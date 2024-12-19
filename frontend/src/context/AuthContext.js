@@ -7,20 +7,20 @@ const AuthContext = createContext();
 // Custom hook to use the AuthContext
 export const useAuth = () => useContext(AuthContext);
 
-// AuthProvider component to wrap your app
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null); // State for regular user
   const [admin, setAdmin] = useState(null); // State for admin
+  const [service, setService] = useState(null); // State for service provider
   const [loading, setLoading] = useState(true); // State for loading during token verification
 
-  // Function to load user and admin from token when the app initializes
+  // Function to load user, admin, and service from token when the app initializes
   const loadUserFromToken = async () => {
     const userToken = localStorage.getItem('token'); // For regular user
     const adminToken = localStorage.getItem('adminToken'); // For admin
+    const serviceToken = localStorage.getItem('serviceToken'); // For service provider
 
     try {
       if (adminToken) {
-        // Fetch admin details based on the admin token
         const response = await axios.get('http://localhost:3001/api/admin/me', {
           headers: {
             Authorization: `Bearer ${adminToken}`,
@@ -28,25 +28,31 @@ export const AuthProvider = ({ children }) => {
         });
         setAdmin(response.data.admin); // Set admin data
       } else if (userToken) {
-        // Fetch regular user details based on the user token
         const response = await axios.get('http://localhost:3001/api/auth/me', {
           headers: {
             Authorization: `Bearer ${userToken}`,
           },
         });
         setUser(response.data.user); // Set user data
+      } else if (serviceToken) {
+        const response = await axios.get('http://localhost:3001/api/service/me', {
+          headers: {
+            Authorization: `Bearer ${serviceToken}`,
+          },
+        });
+        setService(response.data.service); // Set service data
       }
     } catch (error) {
-      console.error('Error loading user or admin from token:', error);
-      // Remove invalid tokens
-      if (adminToken) localStorage.removeItem('adminToken');
-      if (userToken) localStorage.removeItem('token');
+      console.error('Error loading user, admin, or service from token:', error);
+      // Clear invalid tokens
+      localStorage.removeItem('adminToken');
+      localStorage.removeItem('token');
+      localStorage.removeItem('serviceToken');
     } finally {
-      setLoading(false); // Set loading to false once processing is complete
+      setLoading(false);
     }
   };
 
-  // Call loadUserFromToken on component mount
   useEffect(() => {
     loadUserFromToken();
   }, []);
@@ -76,8 +82,8 @@ export const AuthProvider = ({ children }) => {
         username,
         password,
       });
-      setUser(response.data.user); // Set the logged-in user
-      localStorage.setItem('token', response.data.token); // Save token in local storage
+      setUser(response.data.user);
+      localStorage.setItem('token', response.data.token);
       alert('Login successful!');
     } catch (error) {
       console.error('User login failed:', error);
@@ -100,8 +106,8 @@ export const AuthProvider = ({ children }) => {
   const adminLogin = async (username, password) => {
     try {
       const response = await axios.post('http://localhost:3001/api/admin/login', { username, password });
-      setAdmin(response.data.admin); // Set the logged-in admin
-      localStorage.setItem('adminToken', response.data.token); // Save admin token in local storage
+      setAdmin(response.data.admin);
+      localStorage.setItem('adminToken', response.data.token);
       alert('Admin login successful!');
     } catch (error) {
       console.error('Admin login failed:', error);
@@ -109,27 +115,66 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  // Logout function
+  // Service provider registration function
+  const serviceRegister = async (serviceId, serviceName, password) => {
+    try {
+      const response = await axios.post('http://localhost:3001/api/service/register', {
+        serviceId,
+        serviceName,
+        password,
+      });
+
+      if (response.status === 201) {
+        alert('Service registered successfully!');
+        window.location.href = '/service-login'; // Redirect after successful registration
+      }
+    } catch (error) {
+      console.error('Service registration failed:', error);
+      if (error.response && error.response.data && error.response.data.message) {
+        alert(error.response.data.message || 'Service registration failed');
+      } else {
+        alert('Service registration failed, please try again later.');
+      }
+    }
+  };
+
+  // Service provider login function
+  const serviceLogin = (serviceData) => {
+    setService(serviceData); // Set the service provider in context
+    localStorage.setItem('serviceToken', serviceData.token); // Optionally save token in localStorage
+  };
+
+  // Service provider logout
+  const serviceLogout = () => {
+    setService(null);  // Clear the service from context
+    localStorage.removeItem('serviceToken'); // Optionally remove the service token from localStorage
+  };
+
+  // Logout function for regular user and admin
   const logout = () => {
     setUser(null);
     setAdmin(null);
-    localStorage.removeItem('token'); // Remove user token from local storage
-    localStorage.removeItem('adminToken'); // Remove admin token from local storage
+    setService(null);
+    localStorage.removeItem('token');
+    localStorage.removeItem('adminToken');
+    localStorage.removeItem('serviceToken');
   };
 
-  // Auth context value
   const value = {
     user,
     admin,
+    service,
     register,
     login,
     adminRegister,
     adminLogin,
+    serviceRegister,
+    serviceLogin,
+    serviceLogout,
     logout,
   };
 
   if (loading) {
-    // Show a loading indicator while verifying tokens
     return <div>Loading...</div>;
   }
 

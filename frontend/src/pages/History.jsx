@@ -2,28 +2,35 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useAuth } from '../context/AuthContext'; // Assuming you have AuthContext to get logged-in user
 import Invoice from './Invoice'; // Assuming the Invoice component is in the same directory
+import { useNavigate } from 'react-router-dom'; // Import useNavigate for redirection
 import './history.css'; // Ensure this file exists and is properly styled
 
 const History = () => {
   const { user } = useAuth();  // Get the current logged-in user from context
+  const navigate = useNavigate();
   const [bookings, setBookings] = useState([]);
   const [loading, setLoading] = useState(true);
   const [visibleBookings, setVisibleBookings] = useState({}); // State to track visibility of user bookings
 
+  // If user is not logged in, redirect to login page
   useEffect(() => {
-    const fetchBookings = async () => {
-      try {
-        const response = await axios.get('http://localhost:3001/api/bookings');
-        setBookings(response.data);
-      } catch (error) {
-        console.error('Error fetching bookings:', error);
-      } finally {
-        setLoading(false);
-      }
-    };
+    if (!user) {
+      navigate('/login');
+    } else {
+      const fetchBookings = async () => {
+        try {
+          const response = await axios.get('http://localhost:3001/api/bookings');
+          setBookings(response.data);
+        } catch (error) {
+          console.error('Error fetching bookings:', error);
+        } finally {
+          setLoading(false);
+        }
+      };
 
-    fetchBookings();
-  }, []);
+      fetchBookings();
+    }
+  }, [user, navigate]);
 
   // Filter bookings based on the logged-in user
   const filteredBookings = bookings.filter((booking) => booking.username === user?.username);

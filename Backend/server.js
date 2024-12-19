@@ -6,6 +6,8 @@ const cors = require('cors');
 const bcrypt = require('bcryptjs'); // Import bcrypt
 const multer = require('multer');
 const path = require('path');
+const serviceRoutes = require('./routes/serviceRoutes');
+
 // Load environment variables from .env file
 dotenv.config();
 
@@ -220,6 +222,7 @@ app.post('/api/admin/login', async (req, res) => {
 app.use('/api', bannerRoutes);
 app.use('/bannerfolder', express.static(path.join(__dirname, 'bannerfolder')));
 
+app.use('/api', serviceRoutes);
 
 
 // Start the Server
